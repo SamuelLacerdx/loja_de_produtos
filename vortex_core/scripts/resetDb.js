@@ -13,12 +13,12 @@ if (remoto && !process.argv.includes('--confirmar')) {
 }
 if (!remoto) {
   for (const sufixo of ['', '-wal', '-shm']) {
-    const arquivo = path.join(__dirname, '..', 'db', 'vortex.sqlite' + sufixo)
+    const arquivo = path.join(__dirname, '..', 'backend', 'db', 'vortex.sqlite' + sufixo)
     if (fs.existsSync(arquivo)) fs.unlinkSync(arquivo)
   }
 }
 
-const db = require('../src/db')
+const db = require('../backend/db')
 db.pronto
   .then(async () => {
     if (remoto) await db.exec(db.prepararScript(fs.readFileSync(db.caminhoScript, 'utf8'))) // o script já apaga as tabelas antes

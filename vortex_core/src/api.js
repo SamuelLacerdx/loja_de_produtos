@@ -1,5 +1,5 @@
 
-export const API_URL = import.meta.env.VITE_API_URL || '' // vazio = mesmo endereço do site (back-end na pasta server)
+export const API_URL = '' // o front chama /api no mesmo endereço; no dev o Vite repassa para o server.js
 
 export async function api(caminho, { method = 'GET', corpo, formData } = {}) {
   const headers = {}

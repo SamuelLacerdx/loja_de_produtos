@@ -1,16 +1,35 @@
-# React + Vite
+# Vortex Core
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Front (React + Vite) e back (Express) na mesma pasta:
 
-Currently, two official plugins are available:
+- `src/`: o site (React)
+- `server.js`: a API (Express)
+- `backend/`: rotas, serviços e banco (`backend/db`)
+- `api/index.js`: entrada da API no Vercel
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Como rodar
 
-## React Compiler
+Dentro de `vortex_core`:
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+```powershell
+npm install
+copy .env.example .env
+```
 
-## Expanding the ESLint configuration
+Preencha o `JWT_SECRET` no `.env`.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+**Terminal 1** (API, porta 3001):
+
+```powershell
+node .\server.js
+```
+
+**Terminal 2** (site):
+
+```powershell
+npm run dev
+```
+
+Abra http://localhost:5173. As chamadas do site para `/api` são repassadas pelo Vite para a API na porta 3001.
+
+Para apagar e recriar o banco local com os dados de teste: `npm run db:reset`.

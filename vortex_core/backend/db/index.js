@@ -11,7 +11,7 @@
 const fs = require('fs')
 const path = require('path')
 
-const pastaDb = path.join(__dirname, '..', 'db')
+const pastaDb = __dirname
 const caminho = path.join(pastaDb, 'vortex.sqlite')
 const scriptSql = path.join(pastaDb, 'vortex.sql')
 const urlRemota = process.env.TURSO_DATABASE_URL

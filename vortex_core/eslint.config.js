@@ -19,5 +19,5 @@ export default defineConfig([
     },
   },
   { files: ['vite.config.js'], languageOptions: { globals: globals.node } },
-  { files: ['server/**/*.js', 'api/**/*.js'], languageOptions: { globals: globals.node, sourceType: 'commonjs' }, rules: { 'no-unused-vars': ['error', { args: 'none' }] } },
+  { files: ['server.js', 'backend/**/*.js', 'scripts/**/*.js', 'api/**/*.js'], languageOptions: { globals: globals.node, sourceType: 'commonjs' }, rules: { 'no-unused-vars': ['error', { args: 'none' }] } },
 ])
